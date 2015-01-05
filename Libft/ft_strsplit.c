@@ -6,67 +6,85 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 20:05:55 by jde-rus           #+#    #+#             */
-/*   Updated: 2014/12/17 21:41:27 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/05 15:16:20 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t	ft_split(char **dst, char const *s, char c, size_t len)
-{
-	size_t	i;
-
-	i = 0;
-	while (*s == c && *s)
-		s++;
-	while (i < len)
-	{
-		dst[i] = ft_strdup_difc(s, c);
-		if (dst[i] == NULL)
-			return (0);
-		while (*s != c && *s)
-			s++;
-		while (*s == c && *s)
-			s++;
-		i++;
-	}
-	dst[i] = 0;
-	return (1);
-}
-
-static	size_t	ft_count(char const *s, char c)
+static size_t	ft_count(char const *s, char c)
 {
 	size_t	count;
 
 	count = 0;
-	while (*s != '\0')
+	while (s && *s != '\0')
 	{
-		if (*s != c)
-			count ++;
-		while (*s != c)
+		if (s && *s != c && *s != '\0')
+			count++;
+		while (s && *s != c && *s != '\0')
 			s++;
 		s++;
 	}
 	return (count);
 }
 
+static size_t	ft_len(char const *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != c && s[i] != '\0')
+		i++;
+	return (i);
+}
+
+static char		**ft_tab_alloc(size_t count)
+{
+	char	**dst;
+
+	dst = (char**)ft_memalloc(sizeof(char*) * (count + 1));
+	if (dst == NULL)
+		return (NULL);
+	dst[0] = NULL;
+	return (dst);
+}
+
+static void		ft_split(char **dst, char const *s, char c)
+{
+	size_t	i;
+	size_t	len;
+	char	*word;
+
+	i = 0;
+	while (*s != '\0')
+	{
+		while (*s == c && *s != '\0')
+			s++;
+		len = ft_len(s, c);
+		if (len != 0)
+		{
+			word = ft_strsub(s, 0, len);
+			dst[i] = word;
+			i++;
+		}
+		s += len;
+		while (*s == c && *s != '\0')
+			s++;
+	}
+	dst[i] = NULL;
+}
+
 char			**ft_strsplit(char const *s, char c)
 {
 	char	**dst;
-	size_t	len;
+	size_t	count;
 
-	dst = NULL;
 	if (s == NULL)
 		return (NULL);
-	len = ft_count(s, c);
-	if ((dst = (char**)ft_memalloc(len)) == NULL)
+	count = ft_count(s, c);
+	dst = ft_tab_alloc(count);
+	if (dst == NULL)
 		return (NULL);
-	if (ft_split(dst, s, c, len))
-		return (dst);
-	else
-	{
-		free(dst);
-		dst = NULL;
-	}
+	ft_split(dst, s, c);
 	return (dst);
 }

@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/17 21:41:58 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 14:39:20 by jde-rus          ###   ########.fr       */
+/*   Created: 2015/01/05 17:49:56 by jde-rus           #+#    #+#             */
+/*   Updated: 2015/01/05 17:58:52 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int main(void)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	char str[] = "bonjour les amis";
-	char **tab;
-	char c;
-
-	c = ' ';
-
-	tab = (char**)ft_memalloc(ft_strlen(str) + 1);
-	tab = ft_strsplit(str, c);
-	
-	ft_putendl(tab[0]);
-
-	return (1);
+	if (alst != NULL && new != NULL)
+	{
+		if (*alst)
+			new->next = *alst;
+		*alst = new;
+	}
 }

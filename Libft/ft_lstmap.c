@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/17 21:41:58 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 14:39:20 by jde-rus          ###   ########.fr       */
+/*   Created: 2015/01/05 18:12:50 by jde-rus           #+#    #+#             */
+/*   Updated: 2015/01/05 18:24:31 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int main(void)
+t_list	*ft_lstmap(t_list lst, t_list *(*f)(t_list *elem))
 {
-	char str[] = "bonjour les amis";
-	char **tab;
-	char c;
+	t_list	*tmp;
+	t_list	*ret;
 
-	c = ' ';
-
-	tab = (char**)ft_memalloc(ft_strlen(str) + 1);
-	tab = ft_strsplit(str, c);
-	
-	ft_putendl(tab[0]);
-
-	return (1);
+	if (lst == NULL)
+		return (NULL);
+	tmp = f(lst);
+	ret = tmp;
+	while (lst = lst->next)
+	{
+		tmp->next = f(lst);
+		tmp = tmp->next;
+	}
+	return (ret);
 }

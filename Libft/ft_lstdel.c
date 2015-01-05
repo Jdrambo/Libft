@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/17 21:41:58 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 14:39:20 by jde-rus          ###   ########.fr       */
+/*   Created: 2015/01/05 17:42:56 by jde-rus           #+#    #+#             */
+/*   Updated: 2015/01/05 17:46:31 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int main(void)
+void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
 {
-	char str[] = "bonjour les amis";
-	char **tab;
-	char c;
+	t_list *next;
 
-	c = ' ';
-
-	tab = (char**)ft_memalloc(ft_strlen(str) + 1);
-	tab = ft_strsplit(str, c);
-	
-	ft_putendl(tab[0]);
-
-	return (1);
+	if (alst != NULL)
+	{
+		while (*alst)
+		{
+			next = alst->next;
+			ft_lstdelone(alst, del);
+			*alst = next;
+		}
+	}
 }

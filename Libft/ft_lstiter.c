@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/17 21:41:58 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 14:39:20 by jde-rus          ###   ########.fr       */
+/*   Created: 2015/01/05 18:03:18 by jde-rus           #+#    #+#             */
+/*   Updated: 2015/01/05 18:10:32 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int main(void)
+void	ft_lstiter(t_list *lst, void(*f)(t_list *elem))
 {
-	char str[] = "bonjour les amis";
-	char **tab;
-	char c;
-
-	c = ' ';
-
-	tab = (char**)ft_memalloc(ft_strlen(str) + 1);
-	tab = ft_strsplit(str, c);
-	
-	ft_putendl(tab[0]);
-
-	return (1);
+	while (lst)
+	{
+		f(lst);
+		lst = lst->next;
+	}
 }

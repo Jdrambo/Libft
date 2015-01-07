@@ -6,13 +6,13 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/05 18:12:50 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 18:24:31 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/07 00:42:09 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list lst, t_list *(*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*tmp;
 	t_list	*ret;

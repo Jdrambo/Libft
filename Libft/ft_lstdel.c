@@ -6,7 +6,7 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/05 17:42:56 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 17:46:31 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/07 00:38:27 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
 	{
 		while (*alst)
 		{
-			next = alst->next;
+			next = (*alst)->next;
 			ft_lstdelone(alst, del);
 			*alst = next;
 		}

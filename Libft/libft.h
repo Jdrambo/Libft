@@ -6,7 +6,7 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 14:06:45 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 17:18:05 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/07 00:41:24 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int					ft_iscntrl(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
 char				*ft_itoa(int n);
-void				ft_lstdel(t_list **alst, void (*del)(void *), size_t);
-void				ft_lstdelone(t_list **alst, void (*del)(void *), size_t);
+void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
+void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *new);
-t_list				*ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem));
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);

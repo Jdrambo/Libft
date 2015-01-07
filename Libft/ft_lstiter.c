@@ -6,13 +6,13 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/05 18:03:18 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 18:10:32 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/07 00:46:26 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void(*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
 	while (lst)
 	{

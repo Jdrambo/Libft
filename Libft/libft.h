@@ -6,7 +6,7 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 14:06:45 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/07 00:41:24 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/13 03:27:28 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					ft_abs(int i);
 int					ft_atoi(const char *nptr);
 void				ft_bzero(void *s, size_t n);
 int					ft_isascii(int c);
@@ -31,8 +32,11 @@ int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isblank(int c);
 int					ft_iscntrl(int c);
+int					ft_islower(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
+int					ft_ispunct(int c);
+int					ft_isupper(int c);
 char				*ft_itoa(int n);
 void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));

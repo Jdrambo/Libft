@@ -6,7 +6,7 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/27 18:40:23 by jde-rus           #+#    #+#             */
-/*   Updated: 2014/11/27 19:23:33 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/13 01:07:58 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,28 @@ static int	ft_check(char c)
 
 int			ft_atoi(const char *str)
 {
-	int	mult;
-	int result;
+	int		mult;
+	long	nbr;
 
 	mult = 1;
-	result = 0;
-	if (!str)
-		return (0);
+	nbr = 0;
 	while (*str && ft_check(*str))
 		str++;
-	if (*str == '-')
+	if (*str && *str == '-')
 	{
 		mult = -1;
 		str++;
 	}
-	if (*str == '+' && mult != -1)
+	if (*str && *str == '+' && mult != -1)
 		str++;
-	while (*str)
+	while (*str && ft_isdigit(*str))
 	{
-		if (!ft_isdigit(*str))
-			return (result * mult);
-		result = ((result * 10) + (*str - '0'));
+		if ((nbr > (9223372036854775807 - (*str - '0')) / 10) && (mult == -1))
+			return (0);
+		if ((nbr > (9223372036854775806 - (*str - '0')) / 10) && (mult == 1))
+			return (-1);
+		nbr = ((nbr * 10) + (*str - '0'));
 		str++;
 	}
-	return (result * mult);
+	return ((int)(nbr * mult));
 }

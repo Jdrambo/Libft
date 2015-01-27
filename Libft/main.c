@@ -6,7 +6,7 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 21:41:58 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 14:39:20 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/13 04:30:31 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(void)
 	tab = ft_strsplit(str, c);
 	
 	ft_putendl(tab[0]);
+	ft_putendl(tab[1]);
 
 	return (1);
 }

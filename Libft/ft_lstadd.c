@@ -6,7 +6,7 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/05 17:49:56 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/05 17:58:52 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/21 19:37:07 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (alst != NULL && new != NULL)
+	if (alst && new)
 	{
 		if (*alst)
 			new->next = *alst;

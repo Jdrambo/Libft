@@ -6,7 +6,7 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 14:04:18 by jde-rus           #+#    #+#             */
-/*   Updated: 2014/11/27 19:48:52 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/13 03:17:15 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	if (ft_isupper(c) || ft_islower(c))
 		return (1);
 	return (0);
 }

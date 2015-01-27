@@ -6,7 +6,7 @@
 #    By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/26 21:01:24 by jde-rus           #+#    #+#              #
-#    Updated: 2015/01/13 03:28:00 by jde-rus          ###   ########.fr        #
+#    Updated: 2015/01/21 17:24:47 by jde-rus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,14 +30,14 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
 
 OBJ = $(SRC:.c=.o)
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar -rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
-$(OBJ): $(SRC) libft.h
-	@gcc $(FLAG) -c $(SRC)
+$(OBJ): $(SRC)
+	@gcc $(FLAGS) -c $(SRC)
 
 clean:
 	@rm -rf $(OBJ)

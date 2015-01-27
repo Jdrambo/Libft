@@ -6,7 +6,7 @@
 /*   By: jde-rus <jde-rus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 14:06:45 by jde-rus           #+#    #+#             */
-/*   Updated: 2015/01/13 03:27:28 by jde-rus          ###   ########.fr       */
+/*   Updated: 2015/01/15 16:01:42 by jde-rus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int					ft_isblank(int c);
 int					ft_iscntrl(int c);
 int					ft_islower(int c);
 int					ft_isdigit(int c);
+int					ft_isspace(int c);
 int					ft_isprint(int c);
 int					ft_ispunct(int c);
 int					ft_isupper(int c);
